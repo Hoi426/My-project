@@ -1,0 +1,25 @@
+.gallery-item {
+    /* Set a position context for the image */
+    position: relative; 
+    /* Remove the fixed height/max-width and use aspect ratio trick */
+    width: 100%;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    
+    /* 🌟 The Aspect Ratio Magic (e.g., 2:3 Portrait) 🌟 */
+    /* This creates a 2:3 aspect ratio container (200px wide, 300px tall) */
+    padding-top: 150%; /* (Height / Width) * 100 = (3 / 2) * 100 = 150% */
+}
+
+/* Modify the image rule to fit the new container */
+.gallery-item img {
+    /* 🌟 Make the image fill the fixed-ratio container 🌟 */
+    position: absolute; /* Take image out of flow */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block;
+}
